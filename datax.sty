@@ -1,0 +1,29 @@
+\ProvidesPackage{datax}
+
+\makeatletter
+\RequirePackage{csvsimple}
+\RequirePackage{siunitx}
+\RequirePackage{pgfkeys}
+\pgfkeys{/datax/.is family}
+\def\dataxkeys#1{\pgfkeys{/datax,#1}}
+\dataxkeys{
+  filename/.estore in=\datax@filename,
+  siunitx options/.store in=\datax@siunitxoptions,
+  % defaults values,
+  filename=data.csv,
+  siunitx options={round-mode=figures,round-precision=3,scientific-notation=true},
+}
+\newcommand{\data}[2][]{%
+  \dataxkeys{#1}%
+  \csvreader[filter strcmp={\datax@tag}{#2}]%
+  {\datax@filename}{1=\datax@tag,2=\datax@value,3=\datax@unit}
+  {%
+    \bgroup% to keep \sisetup change local 
+    \sisetup{round-mode=figures,round-precision=3,scientific-notation=true}%
+    \expandafter\SI\expandafter[\datax@siunitxoptions]%
+    {\datax@value}{\datax@unit}%
+    \egroup%
+  }%
+}
+\DeclareSIUnit\dimless{}
+\makeatother
