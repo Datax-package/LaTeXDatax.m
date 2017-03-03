@@ -1,5 +1,6 @@
 # datax
 Datax is a MATLAB/LaTeX interface, allowing seamless update between calculations and display in the same way that can already be done with images.
+Best combined with [this MATLAB unit conversion toolbox](https://se.mathworks.com/matlabcentral/fileexchange/29621-units-conversion-toolbox).
 
 ## Code Example
 In MATLAB:
