@@ -1,29 +1,17 @@
 # datax
-Datax is a MATLAB/LaTeX interface, allowing seamless update between calculations and display in the same way that can already be done with images.
-Best combined with [this MATLAB unit conversion toolbox](https://se.mathworks.com/matlabcentral/fileexchange/29621-units-conversion-toolbox).
+A matlab plugin for [the datax LaTeX package](https://github.com/Datax-package/Datax.sty).
 
-## Code Example
-In MATLAB:
+Allows data to be saved in a form easily accessible from LaTeX.
+
+## Code example
+Matlab:
 ```matlab
-Data = dataSetup('data.csv');
-distance = 120; %meter
-time = 24.6; %second
-velocity = distance/time; %meter/second
-data(Data,'velocity',velocity,'\meter\per\second');
-
-dataTeardown(Data);
+datax("data.tex",["s","E","c"],[27,3.14,3e8],["","\\joule","\\meter\\per\\second\\squared"])
 ```
 
-and in LaTeX:
-```latex
-...
-\usepackage{datax}
-...
-
-The velocity was measured as \(v = \data{'velocity'}\).
+LaTeX:
+```tex
+\usepackage[dataxfile=data.tex]{datax}
+% ... later ...
+The measured energy was \(E = \datax{E}\).
 ```
-
-## Motivation
-
-Writing lab reports and similar smaller projects with constant tabbing back and forth between MATLAB and LaTeX, i noticed the workflow for images felt so much smoother than that for calculations.
-Basically, it seems countrary to TeX philosophy to manually edit your document just because you refined your calculations. With this package, you leave the things that MATLAB does best to MATLAB, and vice versa.
