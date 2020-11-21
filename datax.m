@@ -63,7 +63,7 @@ function printdatum(f,tag,value,unit,format)
 	% PRINTDATUM ( f , tag , value , unit , format )
 	%
 	% See also DATAX.
-	fprintf(f,"\\pgfkeyssetvalue{%s}{",tag);
+	fprintf(f,"\\pgfkeyssetvalue{/datax/%s}{",tag);
 	if format == ""
 		format = "%.4g";
 	end
