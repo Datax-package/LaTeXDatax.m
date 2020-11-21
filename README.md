@@ -6,12 +6,16 @@ Allows data to be saved in a form easily accessible from LaTeX.
 ## Code example
 Matlab:
 ```matlab
-datax("data.tex",["s","E","c"],[27,3.14,3e8],["","\\joule","\\meter\\per\\second\\squared"])
+a = 24.35;
+b = 2;
+c = 7.44;
+d = 12;
+datax('data.tex',a,'\meter','%.3g',b,'\kilo\gram',c,'%.2g',d)
 ```
 
 LaTeX:
 ```tex
 \usepackage[dataxfile=data.tex]{datax}
 % ... later ...
-The measured energy was \(E = \datax{E}\).
+The measured distance was \(a = \datax{a}\).
 ```
