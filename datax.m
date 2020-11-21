@@ -72,14 +72,14 @@ function printdatum(f,tag,value,unit,format)
 			fprintf(f,"%s",value);
 			return
 		end
-		fprintf(f,strcat("\\num{",format,"}"),value);
+		fprintf(f,strcat("\\num{",format,"}}\n"),value);
 		return
 	end
-	fprintf(f,strcat("\\SI{",format,"}{%s}"),value,unit);
-	fprintf(f,"}\n");
+	fprintf(f,strcat("\\SI{",format,"}{%s}}\n"),value,unit);
 end
 
-%{ % {{{
+%{ 
+% Archive {{{
 	% Archived, might still have a use in the future...
 	function datax(filename, tags, values, units, formats)
 	% DATAX ( filename, tags, values, units, formats ) save the given data to file
@@ -130,4 +130,5 @@ end
 	end
 	fclose(f);
 end
-% }}} %}
+% Archive }}} 
+%}
