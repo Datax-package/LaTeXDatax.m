@@ -15,7 +15,12 @@ datax('data.tex',a,'\meter','%.3g',b,'\kilo\gram',c,'%.2g',d)
 
 LaTeX:
 ```tex
+\documentclass{article}
+
+\usepackage{siunitx}
 \usepackage[dataxfile=data.tex]{datax}
-% ... later ...
+
+\begin{document}
 The measured distance was \(a = \datax{a}\).
+\end{document}
 ```
