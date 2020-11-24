@@ -24,3 +24,5 @@ LaTeX:
 The measured distance was \(a = \datax{a}\).
 \end{document}
 ```
+
+[![View LaTeXDatax on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://se.mathworks.com/matlabcentral/fileexchange/83333-latexdatax)
