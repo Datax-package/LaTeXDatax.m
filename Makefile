@@ -1,9 +1,15 @@
-.PHONY: all clean
+.PHONY: all clean test
 
-all : README.html
+all : README.html data.tex
 
 README.html : README.md
 	md2html --github $< -o $@
 
+data.tex : test.m datax.m
+	matlab -batch test
+
+test : data.tex
+	cat $<
+
 clean :
-	rm -f README.html
+	${RM} README.html data.tex
