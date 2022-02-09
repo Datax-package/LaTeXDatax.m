@@ -76,7 +76,7 @@ function printdatum(f,tag,value,unit,format)
 		fprintf(f,strcat("\\num{",format,"}}\n"),value);
 		return
 	end
-	fprintf(f,strcat("\\SI{",format,"}{%s}}\n"),value,unit);
+	fprintf(f,strcat("\\qty{",format,"}{%s}}\n"),value,unit);
 end
 
 %{ 
