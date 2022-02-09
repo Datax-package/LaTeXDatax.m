@@ -1,2 +1,5 @@
 data.tex
 README.html
+test.pdf
+*.log
+*.aux
